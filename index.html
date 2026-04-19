@@ -24,6 +24,16 @@
             text-align: center;
         }
 
+        .description {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            background: #f0f3ff;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
         label {
             display: block;
             margin-top: 15px;
@@ -76,16 +86,26 @@
 <div class="container">
     <h2>📊 Предсказание цены</h2>
 
+    <div class="description">
+        Введите известные параметры закупки, и модель оценит ожидаемое снижение цены и итоговую стоимость контракта на основе исторических данных о торгах.
+    </div>
+
     <!-- Цена -->
-    <label for="price">Цена (руб)</label>
-    <input id="price" type="number" placeholder="Введите цену" />
+    <label for="price">Начальная цена (руб)</label>
+    <input id="price" type="number" placeholder="Введите начальную цену" />
 
     <!-- Регион -->
-    <label for="region">Регион доставки</label>
+    <label for="region">Регион проведения закупки</label>
     <select id="region">
         <option>Москва</option>
         <option>Санкт-Петербург</option>
-        <option>Другой</option>
+        <option>Московская область</option>
+        <option>Ленинградская область</option>
+        <option>Новосибирская область</option>
+        <option>Свердловская область</option>
+        <option>Республика Татарстан</option>
+        <option>Краснодарский край</option>
+        <option>Другой регион</option>
     </select>
 
     <!-- Тип торгов -->
@@ -114,7 +134,6 @@ async function predict() {
 
     const price = document.getElementById("price").value;
 
-    // простая валидация
     if (!price) {
         resultDiv.className = "result error";
         resultDiv.innerHTML = "Введите цену";
@@ -150,10 +169,21 @@ async function predict() {
             resultDiv.className = "result error";
             resultDiv.innerHTML = "Ошибка: " + res.error;
         } else {
+            const drop = res.predicted_drop_pct * 100;
+
+            let interpretation = "";
+
+            if (drop > 25) {
+                interpretation = "⚠️ Прогнозируется значительное снижение цены. Рекомендуется обратить внимание: это может быть признаком агрессивного демпинга.";
+            } else {
+                interpretation = "✅ Ожидаемое снижение находится в умеренном диапазоне и соответствует типичной динамике торгов.";
+            }
+
             resultDiv.className = "result";
             resultDiv.innerHTML = `
-                🔻 Снижение: ${(res.predicted_drop_pct * 100).toFixed(2)}% <br>
-                💰 Итоговая цена: ${res.predicted_final_price.toLocaleString("ru-RU")} ₽
+                🔻 Снижение: ${drop.toFixed(2)}% <br>
+                💰 Итоговая цена: ${res.predicted_final_price.toLocaleString("ru-RU")} ₽ <br><br>
+                ${interpretation}
             `;
         }
 
