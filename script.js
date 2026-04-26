@@ -1,4 +1,3 @@
-<script>
 async function predict() {
     const resultDiv = document.getElementById("result");
     const btn = document.querySelector("button");
@@ -66,4 +65,3 @@ async function predict() {
         btn.disabled = false;
     }
 }
-</script>
