@@ -4,12 +4,15 @@ async function predict() {
 
     const price = document.getElementById("price").value;
 
+    // --- проверка цены ---
     if (!price) {
         resultDiv.className = "result error";
         resultDiv.innerHTML = "Введите цену";
         resultDiv.style.display = "block";
         return;
+    }
 
+    // --- проверка industry ---
     const industryInput = document.getElementById("industry");
     const options = document.querySelectorAll("#industry_list option");
 
@@ -21,7 +24,27 @@ async function predict() {
         resultDiv.style.display = "block";
         return;
     }
-    }
+
+    // --- дата ---
+    const datetime = document.getElementById("publication_datetime").value;
+
+    // --- собираем данные ---
+    const data = {
+        customer_price_rub: parseFloat(price),
+        delivery_region: document.getElementById("region").value,
+        trade_type: document.getElementById("trade").value,
+        electronic_trade_mode: document.getElementById("mode").value || null,
+        trading_platform: document.getElementById("platform").value || null,
+        industry_scope: industryInput.value || null,
+        publication_datetime: datetime || null,
+
+        // чекбоксы
+        is_electronic: document.getElementById("is_electronic").checked ? 1 : 0,
+        has_bid_security: document.getElementById("has_bid_security").checked ? 1 : 0,
+        has_contract_security: document.getElementById("has_contract_security").checked ? 1 : 0,
+        has_purchase_code: document.getElementById("has_purchase_code").checked ? 1 : 0,
+        national_regime_flag: document.getElementById("national_regime_flag").checked ? 1 : 0,
+    };
 
     const data = {
         customer_price_rub: parseFloat(price),
