@@ -88,6 +88,7 @@ button:disabled {
     color: #333;
     width: 100%;
     justify-content: flex-start;
+    text-align: left;
 }
 
 .checkbox-row input {
@@ -95,8 +96,6 @@ button:disabled {
     margin: 0;
     transform: scale(1.2);
 }
-
-
 
 
 
