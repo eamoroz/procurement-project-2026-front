@@ -29,7 +29,14 @@ async function predict() {
         trade_type: document.getElementById("trade").value,
         electronic_trade_mode: document.getElementById("mode").value || null,
         trading_platform: document.getElementById("platform").value || null,
-        industry_scope: document.getElementById("industry").value || null
+        industry_scope: document.getElementById("industry").value || null,
+
+        is_electronic: document.getElementById("is_electronic").checked ? 1 : 0,
+        has_bid_security: document.getElementById("has_bid_security").checked ? 1 : 0,
+        has_contract_security: document.getElementById("has_contract_security").checked ? 1 : 0,
+        has_purchase_code: document.getElementById("has_purchase_code").checked ? 1 : 0,
+        national_regime_flag: document.getElementById("national_regime_flag").checked ? 1 : 0
+        
     };
 
     try {
