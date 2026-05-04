@@ -9,6 +9,18 @@ async function predict() {
         resultDiv.innerHTML = "Введите цену";
         resultDiv.style.display = "block";
         return;
+
+    const industryInput = document.getElementById("industry");
+    const options = document.querySelectorAll("#industry_list option");
+
+    const validValues = Array.from(options).map(o => o.value);
+
+    if (industryInput.value && !validValues.includes(industryInput.value)) {
+        resultDiv.className = "result error";
+        resultDiv.innerHTML = "Выберите значение из списка";
+        resultDiv.style.display = "block";
+        return;
+    }
     }
 
     const data = {
