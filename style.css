@@ -73,19 +73,26 @@ button:disabled {
 }
 
 .checkbox-group {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
-.checkbox-group label {
+.checkbox-row {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-weight: normal;
-    margin-top: 8px;
+    gap: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #333;
 }
 
-.checkbox-group input {
-    width: auto;
+.checkbox-row input {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.checkbox-row:hover {
+    opacity: 0.8;
 }
 
 
