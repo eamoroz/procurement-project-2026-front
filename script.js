@@ -16,7 +16,8 @@ async function predict() {
         delivery_region: document.getElementById("region").value,
         trade_type: document.getElementById("trade").value,
         electronic_trade_mode: document.getElementById("mode").value || null,
-        trading_platform: document.getElementById("platform").value || null
+        trading_platform: document.getElementById("platform").value || null,
+        industry_scope: document.getElementById("industry").value || null
     };
 
     try {
