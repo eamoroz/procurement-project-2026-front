@@ -19,13 +19,14 @@ h2 {
 }
 
 .description {
-    margin-top: 10px;
-    font-size: 14px;
+    margin-top: 18px;
+    font-size: 16px;
     color: #555;
-    line-height: 1.5;
-    background: #f0f3ff;
-    padding: 12px;
-    border-radius: 8px;
+    line-height: 1.6;
+    background: #f5f6fb;
+    padding: 18px 20px;
+    border-radius: 12px;
+    border: 1px solid #eceef7;
 }
 
 label {
@@ -40,8 +41,8 @@ select,
 button {
     width: 100%;
     margin-top: 8px;
-    padding: 12px 14px;
-    height: 52px;
+    padding: 8px 12px;
+    height: 44px;
     border-radius: 10px;
     border: 1px solid #ddd;
     font-size: 16px;
@@ -132,7 +133,7 @@ select {
     margin-top: 0;
     margin-bottom: 16px;
 
-    font-size: 24px;
+    font-size: 20px;
     color: #1f2d5a;
 }
 
