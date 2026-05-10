@@ -21,6 +21,13 @@
     <label for="price">Начальная цена (руб)</label>
     <input id="price" type="number" placeholder="Введите начальную цену" />
 
+    <!-- Уровень закупки -->
+    <label for="level">Уровень закупки</label>
+    <select id="level">
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+
     <!-- Регион -->
     <label for="region">Регион проведения закупки</label>
     <select id="region">
@@ -34,6 +41,118 @@
         <option>Краснодарский край</option>
         <option>Другой регион</option>
     </select>
+
+    <!-- Город проведения -->
+    <label for="delivery_city">Город проведения закупки</label>
+    
+    <input
+        list="city_list"
+        id="delivery_city"
+        placeholder="Начните вводить..."
+    />
+    
+    <datalist id="city_list">
+        <option value="Бердск">
+        <option value="Саратовская область">
+        <option value="Сосновоборский район">
+        <option value="Балтайский район">
+        <option value="Бузулук">
+        <option value="Пролетарский район">
+        <option value="Севастополь">
+        <option value="Смоленская область">
+        <option value="Вяземский район">
+        <option value="Энгельсский район">
+        <option value="Архангельская область">
+        <option value="Новодеревеньковский">
+        <option value="Белгородская область">
+        <option value="Каменск-Уральский">
+        <option value="Новороссийск">
+        <option value="Тарногский район">
+        <option value="Угранский район">
+        <option value="Смоленск">
+        <option value="Санкт-Петербург">
+        <option value="Удмуртская Республика">
+        <option value="Свердловская область">
+        <option value="Яшкинский район">
+        <option value="Томская область">
+        <option value="Томск">
+        <option value="Республика Башкортостан">
+        <option value="Челябинская область">
+        <option value="Котельнич">
+        <option value="Липецкая область">
+        <option value="Арзамас">
+        <option value="Тоншаевский район">
+        <option value="Ростовская область">
+        <option value="Усть-Катав">
+        <option value="Омская область">
+        <option value="Андроповский район">
+        <option value="Чувашская Республика - Чувашия">
+        <option value="Республика Карелия">
+        <option value="Белореченск">
+        <option value="Называевск">
+        <option value="Костромская область">
+        <option value="Краснодарский край">
+        <option value="Мурашинский район">
+        <option value="Батыревский район">
+        <option value="Москва">
+        <option value="Мурманская область">
+        <option value="Брянская область">
+        <option value="Калининградская область">
+        <option value="Рязанская область">
+        <option value="Нижегородская область">
+        <option value="Чукотский автономный округ">
+        <option value="Республика Саха (Якутия)">
+        <option value="Приморский край">
+        <option value="Пограничный район">
+        <option value="Новосибирский район">
+        <option value="Новосибирская область">
+        <option value="Камчатский край">
+        <option value="Амурская область">
+        <option value="Краснокутский район">
+        <option value="Вельский район">
+        <option value="Красноярский край">
+        <option value="Республика Мордовия">
+        <option value="Ельнинский район">
+        <option value="Ставропольский край">
+        <option value="Сеченовский район">
+        <option value="Оренбургская область">
+        <option value="Пушкино">
+        <option value="Спасский район">
+        <option value="Перевоз">
+        <option value="Ивантеевский район">
+        <option value="Северск">
+        <option value="Майкоп">
+        <option value="Климовский район">
+        <option value="Тульская область">
+        <option value="Дальнеконстантиновский район">
+        <option value="Сандовский район">
+        <option value="Лихославльский район">
+        <option value="Еврейская автономная область">
+        <option value="Магадан">
+        <option value="Сахалинская область">
+        <option value="Кемеровская область - Кузбасс">
+        <option value="Онгудайский район">
+        <option value="Топки">
+        <option value="Хабаровск">
+        <option value="Тяжинский район">
+        <option value="Мегион">
+        <option value="Оренбург">
+        <option value="Луховицы">
+        <option value="Хабаровский край">
+        <option value="Ивановская область">
+        <option value="Ярославская область">
+        <option value="Духовницкий район">
+        <option value="Сысертский район">
+        <option value="Кировская область">
+        <option value="Свердловский район">
+        <option value="Калининград">
+        <option value="Орловская область">
+        <option value="Пуровский район">
+        <option value="Астраханская область">
+        <option value="Корочанский район">
+        <option value="Курган">
+        <option value="Тула">
+    </datalist>
 
     <!-- Торговая площадка -->
     <label for="platform">Торговая площадка</label>
@@ -52,8 +171,8 @@
     <!-- Тип торгов -->
     <label for="trade">Тип торгов</label>
     <select id="trade">
-        <option>Аукцион</option>
-        <option>Конкурс</option>
+        <option>Аукцион электронный</option>
+        <option>Открытый конкурс в электронной форме</option>
     </select>
 
     <!-- Формат -->
@@ -86,8 +205,78 @@
 <option value="[ОКПД2 33.19] Услуги по ремонту прочего оборудования, [ОКПД2 81.29] Услуги по чистке и уборке прочие, [ОКПД2 81.30] Услуги по планировке ландшафта, [ОКПД2 43.12] Работы по подготовке строительной площадки, [ОКПД2 38.22] Услуги по переработке и утилизации опасных отходов, [ОКПД2 37.00] Услуги по водоотведению; шлам сточных вод, [ОКПД2 43.34] Работы малярные и стекольные, [ОКПД2 43.99] Работы строительные специализированные, не включенные в другие группировки, [ОКПД2 43.33] Работы по устройству покрытий полов и облицовке стен, [ОКПД2 81.21] Услуги по общей уборке зданий, [ОКПД2 93.29] Услуги в области развлечений и отдыха прочие, [ОКПД2 38.11] Отходы неопасные; услуги по сбору неопасных отходов, [ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей">
 </datalist>
 
+<!-- Название публикации -->
+<label for="publication_name">Название публикации</label>
+<input
+    id="publication_name"
+    type="text"
+    placeholder="Введите название публикации"
+/>
+
+<!-- Даты -->
 <label for="publication_datetime">Дата и время публикации</label>
 <input id="publication_datetime" type="datetime-local" />
+
+<label for="applications_deadline_datetime">
+    Дедлайн подачи заявок
+</label>
+<input
+    id="applications_deadline_datetime"
+    type="datetime-local"
+/>
+
+<label for="applications_start_datetime">
+    Начало подачи заявок
+</label>
+<input
+    id="applications_start_datetime"
+    type="datetime-local"
+/>
+
+<label for="trading_end_datetime">
+    Окончание торгов
+</label>
+<input
+    id="trading_end_datetime"
+    type="datetime-local"
+/>
+
+<!-- Обеспечение -->
+
+<label for="bid_security_rub">Обеспечение заявки (руб)</label>
+<input id="bid_security_rub" type="number" step="0.01" />
+
+<label for="bid_security_pct">Обеспечение заявки (%)</label>
+<input id="bid_security_pct" type="number" step="0.01" />
+
+<label for="contract_security_rub">Обеспечение контракта (руб)</label>
+<input id="contract_security_rub" type="number" step="0.01" />
+
+<label for="contract_security_pct">Обеспечение контракта (%)</label>
+<input id="contract_security_pct" type="number" step="0.01" />
+
+<!-- Сопровождение -->
+
+<label for="bank_treasury_support">
+    Банковское / казначейское сопровождение
+</label>
+
+<select id="bank_treasury_support">
+    <option value="">Не указано</option>
+    <option>
+        Требуется казначейское сопровождение контракта
+    </option>
+    <option>
+        Требуется банковское сопровождение контракта
+    </option>
+    <option>
+        Требуется банковское и казначейское сопровождение контракта
+    </option>
+</select>
+
+
+<label for="num_participants">Количество участников</label>
+<input id="num_participants" type="number" />
     
 <!-- Флаги -->
 <h3>Дополнительные параметры</h3>
