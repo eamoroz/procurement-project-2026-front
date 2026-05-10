@@ -156,3 +156,35 @@ select {
     line-height: 1.5;
     color: #333;
 }
+
+.section-divider {
+    margin-top: 36px;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #dcdfe8;
+}
+
+.section-divider span {
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    color: #7a7f8f;
+
+    font-weight: 600;
+}
