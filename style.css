@@ -19,14 +19,14 @@ h2 {
 }
 
 .description {
-    margin-top: 18px;
-    font-size: 16px;
-    color: #555;
-    line-height: 1.6;
-    background: #f5f6fb;
-    padding: 18px 20px;
-    border-radius: 12px;
-    border: 1px solid #eceef7;
+    background: #eef1fb;
+    border: 1px solid #dfe5f7;
+    border-radius: 18px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #3d4255;
 }
 
 label {
