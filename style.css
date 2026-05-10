@@ -111,3 +111,47 @@ select {
     appearance: auto;
 }
 
+.hero-block {
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    padding: 24px;
+
+    background: linear-gradient(
+        135deg,
+        #f4f7ff 0%,
+        #eef3ff 100%
+    );
+
+    border-radius: 16px;
+
+    border: 1px solid #dbe5ff;
+}
+
+.hero-block h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+
+    font-size: 24px;
+    color: #1f2d5a;
+}
+
+.hero-block p {
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+    color: #444;
+    line-height: 1.6;
+}
+
+.hero-block ul {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 22px;
+}
+
+.hero-block li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #333;
+}
