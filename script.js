@@ -26,7 +26,17 @@ async function predict() {
     }
 
     // --- дата ---
-    const datetime = document.getElementById("publication_datetime").value;
+    const datetime =
+    document.getElementById("publication_datetime").value;
+
+    const applicationsDeadlineDatetime =
+        document.getElementById("applications_deadline_datetime").value;
+    
+    const applicationsStartDatetime =
+        document.getElementById("applications_start_datetime").value;
+    
+    const tradingEndDatetime =
+        document.getElementById("trading_end_datetime").value;
 
     // --- собираем данные ---
     const data = {
@@ -44,6 +54,41 @@ async function predict() {
         has_contract_security: document.getElementById("has_contract_security").checked ? 1 : 0,
         has_purchase_code: document.getElementById("has_purchase_code").checked ? 1 : 0,
         national_regime_flag: document.getElementById("national_regime_flag").checked ? 1 : 0,
+
+        level: parseInt(document.getElementById("level").value),
+
+        delivery_city:
+            document.getElementById("delivery_city").value || null,
+        
+        publication_name:
+            document.getElementById("publication_name").value || null,
+        
+        bid_security_rub:
+            parseFloat(document.getElementById("bid_security_rub").value) || 0,
+        
+        bid_security_pct:
+            parseFloat(document.getElementById("bid_security_pct").value) || 0,
+        
+        contract_security_rub:
+            parseFloat(document.getElementById("contract_security_rub").value) || 0,
+        
+        contract_security_pct:
+            parseFloat(document.getElementById("contract_security_pct").value) || 0,
+        
+        bank_treasury_support:
+            document.getElementById("bank_treasury_support").value || null,
+        
+        num_participants:
+            parseInt(document.getElementById("num_participants").value) || 0,
+        
+        applications_deadline_datetime:
+            applicationsDeadlineDatetime || null,
+        
+        applications_start_datetime:
+            applicationsStartDatetime || null,
+        
+        trading_end_datetime:
+            tradingEndDatetime || null,
     };
 
     try {
