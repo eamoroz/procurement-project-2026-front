@@ -254,17 +254,63 @@
 
 <!-- Обеспечение -->
 
-<label for="bid_security_rub">Обеспечение заявки (руб)</label>
-<input id="bid_security_rub" type="number" step="0.01" />
+<div class="double-field">
 
-<label for="bid_security_pct">Обеспечение заявки (%)</label>
-<input id="bid_security_pct" type="number" step="0.01" />
+    <div>
+        <label for="bid_security_rub">
+            Обеспечение заявки (руб)
+        </label>
 
-<label for="contract_security_rub">Обеспечение контракта (руб)</label>
-<input id="contract_security_rub" type="number" step="0.01" />
+        <input
+            type="number"
+            id="bid_security_rub"
+            placeholder="Например 500000"
+        />
+    </div>
 
-<label for="contract_security_pct">Обеспечение контракта (%)</label>
-<input id="contract_security_pct" type="number" step="0.01" />
+    <div>
+        <label for="bid_security_pct">
+            Обеспечение заявки (%)
+        </label>
+
+        <input
+            type="number"
+            step="0.01"
+            id="bid_security_pct"
+            placeholder="Например 5"
+        />
+    </div>
+
+</div>
+
+<div class="double-field">
+
+    <div>
+        <label for="contract_security_rub">
+            Обеспечение контракта (руб)
+        </label>
+
+        <input
+            type="number"
+            id="contract_security_rub"
+            placeholder="Например 1000000"
+        />
+    </div>
+
+    <div>
+        <label for="contract_security_pct">
+            Обеспечение контракта (%)
+        </label>
+
+        <input
+            type="number"
+            step="0.01"
+            id="contract_security_pct"
+            placeholder="Например 10"
+        />
+    </div>
+
+</div>
 
 <!-- Сопровождение -->
 
