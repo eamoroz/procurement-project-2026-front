@@ -82,37 +82,74 @@ async function predict() {
         resultDiv.innerHTML = "⏳ Считаем...";
         resultDiv.style.display = "block";
 
-        const response = await fetch("https://project-2026-ekaterina-moroz.amvera.io/predict", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-
-        const res = await response.json();
-
-        if (res.error) {
-            resultDiv.className = "result error";
-            resultDiv.innerHTML = "Ошибка: " + res.error;
-        } else {
-            const drop = res.predicted_drop_pct * 100;
-
-            let interpretation = "";
-
-            if (drop > 25) {
-                interpretation = "⚠️ Прогнозируется значительное снижение цены. Рекомендуется обратить внимание: это может быть признаком агрессивного демпинга.";
-            } else {
-                interpretation = "✅ Ожидаемое снижение находится в умеренном диапазоне и соответствует типичной динамике торгов.";
+        // --- запрос прогноза цены ---
+        const priceResponse = await fetch(
+            "https://project-2026-ekaterina-moroz.amvera.io/predict",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
             }
-
-            resultDiv.className = "result";
-            resultDiv.innerHTML = `
-                🔻 Снижение: ${drop.toFixed(2)}% <br>
-                💰 Итоговая цена: ${res.predicted_final_price.toLocaleString("ru-RU")} ₽ <br><br>
-                ${interpretation}
-            `;
+        );
+        
+        const priceRes = await priceResponse.json();
+        
+        // --- запрос прогноза демпинга ---
+        const dumpingResponse = await fetch(
+            "https://project-2026-ekaterina-moroz.amvera.io/predict_dumping",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }
+        );
+        
+        const dumpingRes = await dumpingResponse.json();
+        
+        // --- ошибки ---
+        if (priceRes.error) {
+            resultDiv.className = "result error";
+            resultDiv.innerHTML = "Ошибка: " + priceRes.error;
+            return;
         }
+        
+        if (dumpingRes.error) {
+            resultDiv.className = "result error";
+            resultDiv.innerHTML = "Ошибка: " + dumpingRes.error;
+            return;
+        }
+        
+        // --- результаты ---
+        const drop = priceRes.predicted_drop_pct * 100;
+        
+        const isDumping = dumpingRes.is_dumping;
+        
+        let dumpingText = "";
+        
+        if (isDumping) {
+            dumpingText =
+                "⚠️ Модель выявила высокий риск демпинга. Рекомендуется обратить внимание.";
+        } else {
+            dumpingText =
+                "✅ Признаков аномального демпинга не обнаружено.";
+        }
+        
+        resultDiv.className = "result";
+        
+        resultDiv.innerHTML = `
+            🔻 Снижение цены: ${drop.toFixed(2)}% <br>
+            
+            💰 Итоговая цена:
+            ${priceRes.predicted_final_price.toLocaleString("ru-RU")} ₽
+            
+            <br><br>
+        
+            ${dumpingText}
+        `;
 
     } catch (err) {
         resultDiv.className = "result error";
