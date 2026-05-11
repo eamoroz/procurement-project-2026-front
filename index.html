@@ -54,13 +54,6 @@
     <label for="price">Начальная цена (руб)</label>
     <input id="price" type="number" placeholder="Введите начальную цену" />
 
-    <!-- Уровень закупки -->
-    <label for="level">Уровень закупки</label>
-    <select id="level">
-        <option value="1">1</option>
-        <option value="2">2</option>
-    </select>
-
     <!-- Регион -->
     <label for="region">Регион проведения закупки</label>
     <select id="region">
@@ -250,29 +243,14 @@
 <label for="publication_datetime">Дата и время публикации</label>
 <input id="publication_datetime" type="datetime-local" />
 
-<label for="applications_deadline_datetime">
-    Дедлайн подачи заявок
-</label>
-<input
-    id="applications_deadline_datetime"
-    type="datetime-local"
-/>
+<label for="applications_deadline_datetime">Дедлайн подачи заявок</label>
+<input id="applications_deadline_datetime" type="datetime-local" />
 
-<label for="applications_start_datetime">
-    Начало подачи заявок
-</label>
-<input
-    id="applications_start_datetime"
-    type="datetime-local"
-/>
+<label for="applications_start_datetime">Начало подачи заявок</label>
+<input id="applications_start_datetime" type="datetime-local" />
 
-<label for="trading_end_datetime">
-    Окончание торгов
-</label>
-<input
-    id="trading_end_datetime"
-    type="datetime-local"
-/>
+<label for="trading_end_datetime">Окончание торгов</label>
+<input id="trading_end_datetime" type="datetime-local" />
 
 <!-- Обеспечение -->
 
@@ -315,21 +293,6 @@
 <h3>Дополнительные параметры</h3>
 
 <div class="checkbox-group">
-
-    <label class="checkbox-row">
-        <input type="checkbox" id="is_electronic">
-        Электронные торги
-    </label>
-
-    <label class="checkbox-row">
-        <input type="checkbox" id="has_bid_security">
-        Есть обеспечение заявки
-    </label>
-
-    <label class="checkbox-row">
-        <input type="checkbox" id="has_contract_security">
-        Есть обеспечение контракта
-    </label>
 
     <label class="checkbox-row">
         <input type="checkbox" id="has_purchase_code">
