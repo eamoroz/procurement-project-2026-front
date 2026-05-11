@@ -193,3 +193,13 @@ select {
 
     font-weight: 600;
 }
+
+.double-field {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    margin-bottom: 18px;
+}
