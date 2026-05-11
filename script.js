@@ -52,40 +52,27 @@ async function predict() {
         has_purchase_code: document.getElementById("has_purchase_code").checked ? 1 : 0,
         national_regime_flag: document.getElementById("national_regime_flag").checked ? 1 : 0,
 
-        level: parseInt(document.getElementById("level").value),
-
-        delivery_city:
-            document.getElementById("delivery_city").value || null,
+        delivery_city: document.getElementById("delivery_city").value || null,
         
-        publication_name:
-            document.getElementById("publication_name").value || null,
+        publication_name: document.getElementById("publication_name").value || null,
         
-        bid_security_rub:
-            parseFloat(document.getElementById("bid_security_rub").value) || 0,
+        bid_security_rub: parseFloat(document.getElementById("bid_security_rub").value) || 0,
         
-        bid_security_pct:
-            parseFloat(document.getElementById("bid_security_pct").value) || 0,
+        bid_security_pct: parseFloat(document.getElementById("bid_security_pct").value) || 0,
         
-        contract_security_rub:
-            parseFloat(document.getElementById("contract_security_rub").value) || 0,
+        contract_security_rub: parseFloat(document.getElementById("contract_security_rub").value) || 0,
         
-        contract_security_pct:
-            parseFloat(document.getElementById("contract_security_pct").value) || 0,
+        contract_security_pct: parseFloat(document.getElementById("contract_security_pct").value) || 0,
         
-        bank_treasury_support:
-            document.getElementById("bank_treasury_support").value || null,
+        bank_treasury_support: document.getElementById("bank_treasury_support").value || null,
         
-        num_participants:
-            parseInt(document.getElementById("num_participants").value) || 0,
+        num_participants: parseInt(document.getElementById("num_participants").value) || 0,
         
-        applications_deadline_datetime:
-            applicationsDeadlineDatetime || null,
+        applications_deadline_datetime: applicationsDeadlineDatetime || null,
         
-        applications_start_datetime:
-            applicationsStartDatetime || null,
+        applications_start_datetime: applicationsStartDatetime || null,
         
-        trading_end_datetime:
-            tradingEndDatetime || null,
+        trading_end_datetime: tradingEndDatetime || null,
     };
 
     try {
