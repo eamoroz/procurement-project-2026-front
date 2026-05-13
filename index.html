@@ -50,6 +50,10 @@
         Введите известные параметры закупки, и модель оценит ожидаемое снижение цены и итоговую стоимость контракта на основе исторических данных о торгах.
     </div>
 
+    <div class="main-layout">
+
+    <div class="left-column">
+
     <!-- Цена -->
     <label for="price">Начальная цена (руб)</label>
     <input id="price" type="number" placeholder="Введите начальную цену" />
@@ -68,7 +72,7 @@
         <option>Другой регион</option>
     </select>
 
-    <!-- Город проведения -->
+    <!-- Город -->
     <label for="delivery_city">Город проведения закупки</label>
     
     <input
@@ -252,111 +256,124 @@
 <label for="trading_end_datetime">Окончание торгов</label>
 <input id="trading_end_datetime" type="datetime-local" />
 
-<!-- Обеспечение -->
+            </div>
 
-<div class="double-field">
+    <div class="right-column">
 
-    <div>
-        <label for="bid_security_rub">
-            Обеспечение заявки (руб)
-        </label>
+        <div class="side-card">
 
-        <input
-            type="number"
-            id="bid_security_rub"
-            placeholder="Например 500000"
-        />
-    </div>
+            <h3>Финансирование проекта</h3>
 
-    <div>
-        <label for="bid_security_pct">
-            Обеспечение заявки (%)
-        </label>
+            <div class="double-field">
+                <div>
+                    <label for="bid_security_rub">
+                        Обеспечение заявки (руб)
+                    </label>
 
-        <input
-            type="number"
-            step="0.01"
-            id="bid_security_pct"
-            placeholder="Например 5"
-        />
+                    <input
+                        type="number"
+                        id="bid_security_rub"
+                        placeholder="Например 500000"
+                    />
+                </div>
+
+                <div>
+                    <label for="bid_security_pct">
+                        Обеспечение заявки (%)
+                    </label>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        id="bid_security_pct"
+                        placeholder="Например 5"
+                    />
+                </div>
+            </div>
+
+            <div class="double-field">
+
+                <div>
+                    <label for="contract_security_rub">
+                        Обеспечение контракта (руб)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="contract_security_rub"
+                        placeholder="Например 1000000"
+                    />
+                </div>
+
+                <div>
+                    <label for="contract_security_pct">
+                        Обеспечение контракта (%)
+                    </label>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        id="contract_security_pct"
+                        placeholder="Например 10"
+                    />
+                </div>
+
+            </div>
+
+            <label for="bank_treasury_support">
+                Банковское / казначейское сопровождение
+            </label>
+
+            <select id="bank_treasury_support">
+                <option value="">Не указано</option>
+                <option>
+                    Требуется казначейское сопровождение контракта
+                </option>
+                <option>
+                    Требуется банковское сопровождение контракта
+                </option>
+                <option>
+                    Требуется банковское и казначейское сопровождение контракта
+                </option>
+            </select>
+
+            <label for="num_participants">
+                Количество участников
+            </label>
+
+            <input id="num_participants" type="number" />
+
+        </div>
+
+        <div class="side-card">
+
+            <h3>Дополнительные параметры</h3>
+
+            <div class="checkbox-group">
+
+                <label class="checkbox-row">
+                    <input type="checkbox" id="has_purchase_code">
+                    Есть код закупки
+                </label>
+
+                <label class="checkbox-row">
+                    <input type="checkbox" id="national_regime_flag">
+                    Национальный режим
+                </label>
+
+            </div>
+
+        </div>
+
+        <button onclick="predict()">
+            Рассчитать прогноз
+        </button>
+
+        <div id="result" class="result" style="display:none;"></div>
+
     </div>
 
 </div>
-
-<div class="double-field">
-
-    <div>
-        <label for="contract_security_rub">
-            Обеспечение контракта (руб)
-        </label>
-
-        <input
-            type="number"
-            id="contract_security_rub"
-            placeholder="Например 1000000"
-        />
-    </div>
-
-    <div>
-        <label for="contract_security_pct">
-            Обеспечение контракта (%)
-        </label>
-
-        <input
-            type="number"
-            step="0.01"
-            id="contract_security_pct"
-            placeholder="Например 10"
-        />
-    </div>
-
-</div>
-
-<!-- Сопровождение -->
-
-<label for="bank_treasury_support">
-    Банковское / казначейское сопровождение
-</label>
-
-<select id="bank_treasury_support">
-    <option value="">Не указано</option>
-    <option>
-        Требуется казначейское сопровождение контракта
-    </option>
-    <option>
-        Требуется банковское сопровождение контракта
-    </option>
-    <option>
-        Требуется банковское и казначейское сопровождение контракта
-    </option>
-</select>
-
-
-<label for="num_participants">Количество участников</label>
-<input id="num_participants" type="number" />
-    
-<!-- Флаги -->
-<h3>Дополнительные параметры</h3>
-
-<div class="checkbox-group">
-
-    <label class="checkbox-row">
-        <input type="checkbox" id="has_purchase_code">
-        Есть код закупки
-    </label>
-
-    <label class="checkbox-row">
-        <input type="checkbox" id="national_regime_flag">
-        Национальный режим
-    </label>
-
-</div>
-
-
-    
-    <button onclick="predict()">Предсказать</button>
-
-    <div id="result" class="result" style="display:none;"></div>
 
 
 
