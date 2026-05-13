@@ -683,3 +683,9 @@ select:focus {
 
     cursor: pointer;
 }
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
