@@ -138,18 +138,102 @@ async function predict() {
                 "✅ Признаков аномального демпинга не обнаружено.";
         }
         
-        resultDiv.className = "result";
-        
-        resultDiv.innerHTML = `
-            🔻 Снижение цены: ${drop.toFixed(2)}% <br>
-            
-            💰 Итоговая цена:
-            ${priceRes.predicted_final_price.toLocaleString("ru-RU")} ₽
-            
-            <br><br>
-        
-            ${dumpingText}
-        `;
+resultDiv.className = "result-card";
+
+resultDiv.innerHTML = `
+    <div class="result-title">
+        Прогноз и оценка
+    </div>
+
+    <div class="result-grid">
+
+        <!-- DROP -->
+        <div class="metric-card">
+
+            <div class="metric-header">
+
+                <div class="metric-icon danger">
+                    ▼
+                </div>
+
+                <div class="metric-name">
+                    Снижение цены
+                </div>
+
+            </div>
+
+            <div class="metric-value">
+                ${drop.toFixed(2)}%
+            </div>
+
+            <div class="metric-description">
+                Ожидаемое снижение
+            </div>
+
+        </div>
+
+        <!-- PRICE -->
+        <div class="metric-card">
+
+            <div class="metric-header">
+
+                <div class="metric-icon success">
+                    ₽
+                </div>
+
+                <div class="metric-name">
+                    Итоговая цена
+                </div>
+
+            </div>
+
+            <div class="metric-value">
+                ${priceRes.predicted_final_price.toLocaleString("ru-RU")} ₽
+            </div>
+
+            <div class="metric-description">
+                Прогнозируемая итоговая цена
+            </div>
+
+        </div>
+
+        <!-- DUMPING -->
+        <div class="metric-card">
+
+            <div class="metric-header">
+
+                <div class="metric-icon info">
+                    ✓
+                </div>
+
+                <div class="metric-name">
+                    Признак демпинга
+                </div>
+
+            </div>
+
+            <div class="metric-value">
+                ${isDumping ? "Обнаружен" : "Не обнаружено"}
+            </div>
+
+            <div class="metric-description">
+                ${
+                    isDumping
+                    ? "Есть признаки аномального снижения цены"
+                    : "Аномального демпинга не выявлено"
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="result-footer">
+        Прогноз построен на основе исторических данных
+        о торгах и рыночных факторов.
+        Результат не является публичной офертой.
+    </div>
+`;
 
     } catch (err) {
         resultDiv.className = "result error";
