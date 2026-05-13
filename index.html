@@ -50,27 +50,42 @@
         Введите известные параметры закупки, и модель оценит ожидаемое снижение цены и итоговую стоимость контракта на основе исторических данных о торгах.
     </div>
 
-    <div class="main-layout">
+        <!-- MAIN -->
+        <div class="main-layout">
 
-    <div class="left-column">
+            <div class="left-grid">
+
+                <!-- CARD 1 -->
+                <div class="form-card">
+
+                    <h3>Общие параметры</h3>
 
     <!-- Цена -->
-    <label for="price">Начальная цена (руб)</label>
-    <input id="price" type="number" placeholder="Введите начальную цену" />
+                    <div class="field">
+                        <label>Начальная цена (руб)</label>
+
+                        <input
+                            type="number"
+                            id="price"
+                            placeholder="Введите начальную цену"
+                        />
+                    </div>
 
     <!-- Регион -->
-    <label for="region">Регион проведения закупки</label>
-    <select id="region">
-        <option>Москва</option>
-        <option>Санкт-Петербург</option>
-        <option>Московская область</option>
-        <option>Ленинградская область</option>
-        <option>Новосибирская область</option>
-        <option>Свердловская область</option>
-        <option>Республика Татарстан</option>
-        <option>Краснодарский край</option>
-        <option>Другой регион</option>
-    </select>
+                    <div class="field">
+                        <label>Регион проведения закупки</label>
+                        <select id="region">
+                            <option>Москва</option>
+                            <option>Санкт-Петербург</option>
+                            <option>Московская область</option>
+                            <option>Ленинградская область</option>
+                            <option>Новосибирская область</option>
+                            <option>Свердловская область</option>
+                            <option>Республика Татарстан</option>
+                            <option>Краснодарский край</option>
+                            <option>Другой регион</option>
+                        </select>
+                    </div>
 
     <!-- Город -->
     <label for="delivery_city">Город проведения закупки</label>
@@ -243,6 +258,14 @@
     placeholder="Введите название публикации"
 />
 
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="form-card">
+
+                    
+                
+
 <!-- Даты -->
 <label for="publication_datetime">Дата и время публикации</label>
 <input id="publication_datetime" type="datetime-local" />
@@ -256,11 +279,10 @@
 <label for="trading_end_datetime">Окончание торгов</label>
 <input id="trading_end_datetime" type="datetime-local" />
 
-            </div>
+                </div>
 
-    <div class="right-column">
-
-        <div class="side-card">
+                <!-- CARD 3 -->
+                <div class="form-card">
 
             <h3>Финансирование проекта</h3>
 
@@ -361,19 +383,28 @@
                     Национальный режим
                 </label>
 
+                </div>
+
             </div>
 
         </div>
 
-        <button onclick="predict()">
+        <!-- BUTTON -->
+        <button
+            onclick="predict()"
+            class="predict-button"
+        >
             Рассчитать прогноз
         </button>
 
-        <div id="result" class="result" style="display:none;"></div>
+        <!-- RESULT -->
+        <div
+            id="result"
+            class="result"
+            style="display:none;"
+        ></div>
 
     </div>
-
-</div>
 
 
 
