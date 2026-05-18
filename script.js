@@ -141,98 +141,114 @@ async function predict() {
 resultDiv.className = "result-card";
 
 resultDiv.innerHTML = `
+
+<div class="result-header">
+
+    <div class="result-header-icon">
+        <i data-lucide="bar-chart-3"></i>
+    </div>
+
     <div class="result-title">
         Прогноз и оценка
     </div>
 
-    <div class="result-grid">
+</div>
 
-        <!-- DROP -->
-        <div class="metric-card">
+<div class="result-grid">
 
-            <div class="metric-header">
+    <!-- DROP -->
 
-                <div class="metric-icon danger">
-                    ▼
-                </div>
+    <div class="metric-card">
 
-                <div class="metric-name">
-                    Снижение цены
-                </div>
+        <div class="metric-top">
 
+            <div class="metric-icon red">
+                <i data-lucide="trending-down"></i>
             </div>
 
-            <div class="metric-value">
-                ${drop.toFixed(2)}%
-            </div>
-
-            <div class="metric-description">
-                Ожидаемое снижение
+            <div class="metric-label">
+                Снижение цены
             </div>
 
         </div>
 
-        <!-- PRICE -->
-        <div class="metric-card">
-
-            <div class="metric-header">
-
-                <div class="metric-icon success">
-                    ₽
-                </div>
-
-                <div class="metric-name">
-                    Итоговая цена
-                </div>
-
-            </div>
-
-            <div class="metric-value">
-                ${priceRes.predicted_final_price.toLocaleString("ru-RU")} ₽
-            </div>
-
-            <div class="metric-description">
-                Прогнозируемая итоговая цена
-            </div>
-
+        <div class="metric-value">
+            ${drop.toFixed(2)}%
         </div>
 
-        <!-- DUMPING -->
-        <div class="metric-card">
-
-            <div class="metric-header">
-
-                <div class="metric-icon info">
-                    ✓
-                </div>
-
-                <div class="metric-name">
-                    Признак демпинга
-                </div>
-
-            </div>
-
-            <div class="metric-value">
-                ${isDumping ? "Обнаружен" : "Не обнаружено"}
-            </div>
-
-            <div class="metric-description">
-                ${
-                    isDumping
-                    ? "Есть признаки аномального снижения цены"
-                    : "Аномального демпинга не выявлено"
-                }
-            </div>
-
+        <div class="metric-description">
+            Ожидаемое снижение начальной цены контракта
         </div>
 
     </div>
 
-    <div class="result-footer">
-        Прогноз построен на основе исторических данных
-        о торгах и рыночных факторов.
+    <!-- PRICE -->
+
+    <div class="metric-card">
+
+        <div class="metric-top">
+
+            <div class="metric-icon green">
+                <i data-lucide="badge-russian-ruble"></i>
+            </div>
+
+            <div class="metric-label">
+                Итоговая цена
+            </div>
+
+        </div>
+
+        <div class="metric-value">
+            ${priceRes.predicted_final_price.toLocaleString("ru-RU")} ₽
+        </div>
+
+        <div class="metric-description">
+            Прогнозируемая итоговая стоимость контракта
+        </div>
+
     </div>
+
+    <!-- DUMPING -->
+
+    <div class="metric-card">
+
+        <div class="metric-top">
+
+            <div class="metric-icon blue">
+                <i data-lucide="shield-check"></i>
+            </div>
+
+            <div class="metric-label">
+                Признак демпинга
+            </div>
+
+        </div>
+
+        <div class="metric-value">
+            ${isDumping ? "Обнаружен" : "Не обнаружено"}
+        </div>
+
+        <div class="metric-description">
+            ${
+                isDumping
+                ? "Модель выявила признаки аномального снижения цены"
+                : "Признаков аномального демпинга не выявлено"
+            }
+        </div>
+
+    </div>
+
+</div>
+
+<div class="result-footer">
+
+    Прогноз построен на основе исторических данных
+    о торгах, параметров закупки и рыночных факторов.
+
+</div>
 `;
+
+lucide.createIcons();
 
     } catch (err) {
         resultDiv.className = "result error";
