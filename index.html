@@ -160,336 +160,263 @@
         Введите известные параметры закупки, и модель оценит ожидаемое снижение цены и итоговую стоимость контракта на основе исторических данных о торгах.
     </div>
 
-        <!-- MAIN -->
-        <div class="main-layout">
+<div class="main-layout">
 
-            <div class="left-grid">
+    <!-- MAIN HORIZONTAL CARD -->
 
-                <!-- CARD 1 -->
-                <div class="form-card">
+    <div class="form-card main-card">
 
-                    <h3>Общие параметры</h3>
+        <h3>Общие параметры</h3>
 
-    <!-- Цена -->
-                    <div class="field">
-                        <label>Начальная цена (руб)</label>
+        <!-- PRICE -->
+
+        <div class="field full-width-field">
+
+            <label>Начальная цена (руб)</label>
+
+            <input
+                type="number"
+                id="price"
+                placeholder="Введите начальную цену"
+            />
+
+        </div>
+
+        <!-- REGION + CITY -->
+
+        <div class="inline-grid two-inline">
+
+            <div class="field">
+
+                <label>Регион проведения закупки</label>
+
+                <select id="region">
+
+                    <option>Москва</option>
+                    <option>Санкт-Петербург</option>
+                    <option>Московская область</option>
+                    <option>Ленинградская область</option>
+                    <option>Новосибирская область</option>
+                    <option>Свердловская область</option>
+                    <option>Республика Татарстан</option>
+                    <option>Краснодарский край</option>
+                    <option>Другой регион</option>
+
+                </select>
+
+            </div>
+
+            <div class="field">
+
+                <label for="delivery_city">
+                    Город проведения закупки
+                </label>
+
+                <input
+                    list="city_list"
+                    id="delivery_city"
+                    placeholder="Начните вводить..."
+                />
+
+            </div>
+
+        </div>
+
+        <!-- PLATFORM + TRADE + MODE -->
+
+        <div class="inline-grid three-inline">
+
+            <div class="field">
+
+                <label for="platform">
+                    Торговая площадка
+                </label>
+
+                <select id="platform">
+
+                    <option value="">Не выбрано</option>
+                    <option>ЕЭТП (РОСЭЛТОРГ)</option>
+                    <option>ЭТП ГПБ</option>
+                    <option>ЭТП ТЭК-Торг</option>
+                    <option>Фабрикант</option>
+                    <option>Сбербанк-АСТ</option>
+                    <option>РТС-тендер</option>
+                    <option>РАД Lot-online</option>
+                    <option>ZAKAZRF</option>
+
+                </select>
+
+            </div>
+
+            <div class="field">
+
+                <label for="trade">
+                    Тип торгов
+                </label>
+
+                <select id="trade">
+
+                    <option>
+                        Аукцион электронный
+                    </option>
+
+                    <option>
+                        Открытый конкурс в электронной форме
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="field">
+
+                <label for="mode">
+                    Формат торгов
+                </label>
+
+                <select id="mode">
+
+                    <option value="">
+                        Не указано
+                    </option>
+
+                    <option>
+                        Электронный
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- INDUSTRY -->
+
+        <div class="field full-width-field">
+
+            <label for="industry">
+                Отрасль закупки
+            </label>
+
+            <input
+                list="industry_list"
+                id="industry"
+                placeholder="Начните вводить..."
+            />
+
+        </div>
+
+        <!-- PUBLICATION -->
+
+        <div class="field full-width-field">
+
+            <label for="publication_name">
+                Название публикации
+            </label>
+
+            <input
+                id="publication_name"
+                type="text"
+                placeholder="Введите название публикации"
+            />
+
+        </div>
+
+    </div>
+
+    <!-- ACCORDION -->
+
+    <details class="advanced-section">
+
+        <summary>
+            Дополнительные параметры закупки
+        </summary>
+
+        <div class="left-grid">
+
+            <!-- CARD 2 -->
+
+            <div class="form-card">
+
+                <h3>Временные параметры</h3>
+
+                <label for="publication_datetime">
+                    Дата и время публикации
+                </label>
+
+                <input
+                    id="publication_datetime"
+                    type="datetime-local"
+                />
+
+                <label for="applications_deadline_datetime">
+                    Дедлайн подачи заявок
+                </label>
+
+                <input
+                    id="applications_deadline_datetime"
+                    type="datetime-local"
+                />
+
+                <label for="applications_start_datetime">
+                    Начало подачи заявок
+                </label>
+
+                <input
+                    id="applications_start_datetime"
+                    type="datetime-local"
+                />
+
+                <label for="trading_end_datetime">
+                    Окончание торгов
+                </label>
+
+                <input
+                    id="trading_end_datetime"
+                    type="datetime-local"
+                />
+
+            </div>
+
+            <!-- CARD 3 -->
+
+            <div class="form-card">
+
+                <h3>Финансирование проекта</h3>
+
+                <!-- твой существующий код финансирования -->
+
+            </div>
+
+            <!-- CHECKBOX -->
+
+            <div class="form-card checkbox-card">
+
+                <h3>Дополнительные параметры</h3>
+
+                <div class="checkbox-group">
+
+                    <label class="checkbox-label">
 
                         <input
-                            type="number"
-                            id="price"
-                            placeholder="Введите начальную цену"
-                        />
-                    </div>
+                            type="checkbox"
+                            id="has_purchase_code"
+                        >
 
-    <!-- Регион -->
-                    <div class="field">
-                        <label>Регион проведения закупки</label>
-                        <select id="region">
-                            <option>Москва</option>
-                            <option>Санкт-Петербург</option>
-                            <option>Московская область</option>
-                            <option>Ленинградская область</option>
-                            <option>Новосибирская область</option>
-                            <option>Свердловская область</option>
-                            <option>Республика Татарстан</option>
-                            <option>Краснодарский край</option>
-                            <option>Другой регион</option>
-                        </select>
-                    </div>
+                        Есть код закупки
 
-    <!-- Город -->
-    <label for="delivery_city">Город проведения закупки</label>
-    
-    <input
-        list="city_list"
-        id="delivery_city"
-        placeholder="Начните вводить..."
-    />
-    
-    <datalist id="city_list">
-        <option value="Бердск">
-        <option value="Саратовская область">
-        <option value="Сосновоборский район">
-        <option value="Балтайский район">
-        <option value="Бузулук">
-        <option value="Пролетарский район">
-        <option value="Севастополь">
-        <option value="Смоленская область">
-        <option value="Вяземский район">
-        <option value="Энгельсский район">
-        <option value="Архангельская область">
-        <option value="Новодеревеньковский">
-        <option value="Белгородская область">
-        <option value="Каменск-Уральский">
-        <option value="Новороссийск">
-        <option value="Тарногский район">
-        <option value="Угранский район">
-        <option value="Смоленск">
-        <option value="Санкт-Петербург">
-        <option value="Удмуртская Республика">
-        <option value="Свердловская область">
-        <option value="Яшкинский район">
-        <option value="Томская область">
-        <option value="Томск">
-        <option value="Республика Башкортостан">
-        <option value="Челябинская область">
-        <option value="Котельнич">
-        <option value="Липецкая область">
-        <option value="Арзамас">
-        <option value="Тоншаевский район">
-        <option value="Ростовская область">
-        <option value="Усть-Катав">
-        <option value="Омская область">
-        <option value="Андроповский район">
-        <option value="Чувашская Республика - Чувашия">
-        <option value="Республика Карелия">
-        <option value="Белореченск">
-        <option value="Называевск">
-        <option value="Костромская область">
-        <option value="Краснодарский край">
-        <option value="Мурашинский район">
-        <option value="Батыревский район">
-        <option value="Москва">
-        <option value="Мурманская область">
-        <option value="Брянская область">
-        <option value="Калининградская область">
-        <option value="Рязанская область">
-        <option value="Нижегородская область">
-        <option value="Чукотский автономный округ">
-        <option value="Республика Саха (Якутия)">
-        <option value="Приморский край">
-        <option value="Пограничный район">
-        <option value="Новосибирский район">
-        <option value="Новосибирская область">
-        <option value="Камчатский край">
-        <option value="Амурская область">
-        <option value="Краснокутский район">
-        <option value="Вельский район">
-        <option value="Красноярский край">
-        <option value="Республика Мордовия">
-        <option value="Ельнинский район">
-        <option value="Ставропольский край">
-        <option value="Сеченовский район">
-        <option value="Оренбургская область">
-        <option value="Пушкино">
-        <option value="Спасский район">
-        <option value="Перевоз">
-        <option value="Ивантеевский район">
-        <option value="Северск">
-        <option value="Майкоп">
-        <option value="Климовский район">
-        <option value="Тульская область">
-        <option value="Дальнеконстантиновский район">
-        <option value="Сандовский район">
-        <option value="Лихославльский район">
-        <option value="Еврейская автономная область">
-        <option value="Магадан">
-        <option value="Сахалинская область">
-        <option value="Кемеровская область - Кузбасс">
-        <option value="Онгудайский район">
-        <option value="Топки">
-        <option value="Хабаровск">
-        <option value="Тяжинский район">
-        <option value="Мегион">
-        <option value="Оренбург">
-        <option value="Луховицы">
-        <option value="Хабаровский край">
-        <option value="Ивановская область">
-        <option value="Ярославская область">
-        <option value="Духовницкий район">
-        <option value="Сысертский район">
-        <option value="Кировская область">
-        <option value="Свердловский район">
-        <option value="Калининград">
-        <option value="Орловская область">
-        <option value="Пуровский район">
-        <option value="Астраханская область">
-        <option value="Корочанский район">
-        <option value="Курган">
-        <option value="Тула">
-    </datalist>
-
-    <!-- Торговая площадка -->
-    <label for="platform">Торговая площадка</label>
-<select id="platform">
-    <option value="">Не выбрано</option>
-    <option>ЕЭТП (РОСЭЛТОРГ)</option>
-    <option>ЭТП ГПБ</option>
-    <option>ЭТП ТЭК-Торг</option>
-    <option>Фабрикант</option>
-    <option>Сбербанк-АСТ</option>
-    <option>РТС-тендер</option>
-    <option>РАД Lot-online</option>
-    <option>ZAKAZRF</option>
-</select>
-
-    <!-- Тип торгов -->
-    <label for="trade">Тип торгов</label>
-    <select id="trade">
-        <option>Аукцион электронный</option>
-        <option>Открытый конкурс в электронной форме</option>
-    </select>
-
-    <!-- Формат -->
-    <label for="mode">Формат торгов</label>
-    <select id="mode">
-        <option value="">Не указано</option>
-        <option>Электронный</option>
-    </select>
-
-<!-- Отрасль -->
-<label for="industry">Отрасль закупки</label>
-<input list="industry_list" id="industry" placeholder="Начните вводить..." />
-
-<datalist id="industry_list">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [КТРУ 42.11.10.130-00000022] Ограждение дорожное удерживающее боковое для автомобилей">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [КТРУ 42.11.10.130-00000021] Ограждение дорожное для пешеходов, [КТРУ 42.11.10.130-00000022] Ограждение дорожное удерживающее боковое для автомобилей">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [КТРУ 42.11.10.130-00000022] Ограждение дорожное удерживающее боковое для автомобилей, [КТРУ 42.11.10.130-00000021] Ограждение дорожное для пешеходов">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [КТРУ 42.11.20.200-00000001] Выполнение работ по ремонту автомобильных дорог">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [ОКВЭД2 42.11] Строительство автомобильных дорог и автомагистралей">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [ОКПД2 27.11] Электродвигатели, генераторы и трансформаторы">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [ОКПД2 43.21] Работы электромонтажные, [ОКПД2 81.29] Услуги по чистке и уборке прочие">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [ОКПД2 25.99] Металлоизделия готовые прочие, не включенные в другие группировки, [ОКПД2 42.99] Сооружения и строительные работы по строительству прочих гражданских сооружений, не включенных в другие группировки, [ОКПД2 26.40] Техника бытовая электронная">
-<option value="[ОКПД2 25.99] Металлоизделия готовые прочие, не включенные в другие группировки, [ОКПД2 27.90] Оборудование электрическое прочее, [ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [КТРУ 25.99.29.190-00000004] Опора знака дорожного, [КТРУ 25.99.29.190-00000002] Знак дорожный">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [КТРУ 42.11.10.130-00000020] Ограждение дорожное для пешеходов">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [ОКПД2 38.11] Отходы неопасные; услуги по сбору неопасных отходов">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [ОКПД2 25.99] Металлоизделия готовые прочие, не включенные в другие группировки, [КТРУ 25.99.29.190-00000001] Знак дорожный">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [ОКПД2 26.51] Оборудование для измерения, испытаний и навигации">
-<option value="[ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей, [ОКПД2 27.90] Оборудование электрическое прочее, [ОКПД2 58.29] Услуги по изданию прочего программного обеспечения, [ОКПД2 26.20] Компьютеры и периферийное оборудование, [ОКПД2 62.09] Услуги в области информационных технологий прочие и компьютерные услуги, [ОКПД2 62.01] Продукты программные и услуги по разработке и тестированию программного обеспечения, [ОКПД2 26.30] Оборудование коммуникационное, [ОКПД2 74.90] Услуги профессиональные, научные и технические, прочие, не включенные в другие группировки">
-<option value="[ОКПД2 33.19] Услуги по ремонту прочего оборудования, [ОКПД2 81.29] Услуги по чистке и уборке прочие, [ОКПД2 81.30] Услуги по планировке ландшафта, [ОКПД2 43.12] Работы по подготовке строительной площадки, [ОКПД2 38.22] Услуги по переработке и утилизации опасных отходов, [ОКПД2 37.00] Услуги по водоотведению; шлам сточных вод, [ОКПД2 43.34] Работы малярные и стекольные, [ОКПД2 43.99] Работы строительные специализированные, не включенные в другие группировки, [ОКПД2 43.33] Работы по устройству покрытий полов и облицовке стен, [ОКПД2 81.21] Услуги по общей уборке зданий, [ОКПД2 93.29] Услуги в области развлечений и отдыха прочие, [ОКПД2 38.11] Отходы неопасные; услуги по сбору неопасных отходов, [ОКПД2 42.11] Дороги автомобильные и автомагистрали; строительные работы по строительству автомобильных дорог и автомагистралей">
-</datalist>
-
-<!-- Название публикации -->
-<label for="publication_name">Название публикации</label>
-<input
-    id="publication_name"
-    type="text"
-    placeholder="Введите название публикации"
-/>
-
-                </div>
-
-                <!-- CARD 2 -->
-                <div class="form-card">
-
-                    <h3>Временные параметры</h3>
-                
-
-<!-- Даты -->
-<label for="publication_datetime">Дата и время публикации</label>
-<input id="publication_datetime" type="datetime-local" />
-
-<label for="applications_deadline_datetime">Дедлайн подачи заявок</label>
-<input id="applications_deadline_datetime" type="datetime-local" />
-
-<label for="applications_start_datetime">Начало подачи заявок</label>
-<input id="applications_start_datetime" type="datetime-local" />
-
-<label for="trading_end_datetime">Окончание торгов</label>
-<input id="trading_end_datetime" type="datetime-local" />
-
-                </div>
-
-                <!-- CARD 3 -->
-                <div class="form-card">
-
-            <h3>Финансирование проекта</h3>
-
-            <div class="double-field">
-                <div>
-                    <label for="bid_security_rub">
-                        Обеспечение заявки (руб)
                     </label>
 
-                    <input
-                        type="number"
-                        id="bid_security_rub"
-                        placeholder="Например 500000"
-                    />
-                </div>
+                    <label class="checkbox-label">
 
-                <div>
-                    <label for="bid_security_pct">
-                        Обеспечение заявки (%)
+                        <input
+                            type="checkbox"
+                            id="national_regime_flag"
+                        >
+
+                        Национальный режим
+
                     </label>
-
-                    <input
-                        type="number"
-                        step="0.01"
-                        id="bid_security_pct"
-                        placeholder="Например 5"
-                    />
-                </div>
-            </div>
-
-            <div class="double-field">
-
-                <div>
-                    <label for="contract_security_rub">
-                        Обеспечение контракта (руб)
-                    </label>
-
-                    <input
-                        type="number"
-                        id="contract_security_rub"
-                        placeholder="Например 1000000"
-                    />
-                </div>
-
-                <div>
-                    <label for="contract_security_pct">
-                        Обеспечение контракта (%)
-                    </label>
-
-                    <input
-                        type="number"
-                        step="0.01"
-                        id="contract_security_pct"
-                        placeholder="Например 10"
-                    />
-                </div>
-
-            </div>
-
-            <label for="bank_treasury_support">
-                Банковское / казначейское сопровождение
-            </label>
-
-            <select id="bank_treasury_support">
-                <option value="">Не указано</option>
-                <option>
-                    Требуется казначейское сопровождение контракта
-                </option>
-                <option>
-                    Требуется банковское сопровождение контракта
-                </option>
-                <option>
-                    Требуется банковское и казначейское сопровождение контракта
-                </option>
-            </select>
-
-            <label for="num_participants">
-                Количество участников
-            </label>
-
-            <input id="num_participants" type="number" />
-
-                    <div class="form-card checkbox-card">
-
-            <h3>Дополнительные параметры</h3>
-
-            <div class="checkbox-group">
-
-                <label class="checkbox-label">
-                    <input type="checkbox" id="has_purchase_code">
-                    Есть код закупки
-                </label>
-
-                <label class="checkbox-label">
-                    <input type="checkbox" id="national_regime_flag">
-                    Национальный режим
-                </label>
 
                 </div>
 
@@ -497,7 +424,7 @@
 
         </div>
 
-        </div>
+    </details>
 
         <!-- BUTTON -->
         <button
