@@ -411,7 +411,8 @@ select:focus {
 
 /* CHECKBOXES */
 
-.checkboxes {
+.checkbox-group {
+
     display: flex;
 
     flex-direction: column;
@@ -421,7 +422,8 @@ select:focus {
     margin-top: 10px;
 }
 
-.checkboxes label {
+.checkbox-group label {
+
     display: flex;
 
     align-items: center;
@@ -431,7 +433,8 @@ select:focus {
     font-size: 15px;
 }
 
-.checkboxes input {
+.checkbox-group input {
+
     width: 18px;
     height: 18px;
 }
