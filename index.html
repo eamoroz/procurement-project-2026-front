@@ -184,45 +184,79 @@
 
         <!-- REGION + CITY -->
 
-        <div class="inline-grid two-inline">
+        <!-- REGION -->
+        
+        <div class="field full-width-field">
+        
+            <label>Регион проведения закупки</label>
+        
+            <select id="region">
+        
+                <option>Москва</option>
+                <option>Санкт-Петербург</option>
+                <option>Московская область</option>
+                <option>Ленинградская область</option>
+                <option>Новосибирская область</option>
+                <option>Свердловская область</option>
+                <option>Республика Татарстан</option>
+                <option>Краснодарский край</option>
+                <option>Другой регион</option>
+        
+            </select>
+        
+        </div>
+        
+        <!-- CITY -->
+        
+        <div class="field full-width-field">
+        
+            <label for="delivery_city">
+                Город проведения закупки
+            </label>
+        
+            <input
+                list="city_list"
+                id="delivery_city"
+                placeholder="Начните вводить..."
+            />
+        
+        </div>
 
-            <div class="field">
+        <!-- INDUSTRY -->
 
-                <label>Регион проведения закупки</label>
+        <div class="field full-width-field">
 
-                <select id="region">
+            <label for="industry">
+                Отрасль закупки
+            </label>
 
-                    <option>Москва</option>
-                    <option>Санкт-Петербург</option>
-                    <option>Московская область</option>
-                    <option>Ленинградская область</option>
-                    <option>Новосибирская область</option>
-                    <option>Свердловская область</option>
-                    <option>Республика Татарстан</option>
-                    <option>Краснодарский край</option>
-                    <option>Другой регион</option>
-
-                </select>
-
-            </div>
-
-            <div class="field">
-
-                <label for="delivery_city">
-                    Город проведения закупки
-                </label>
-
-                <input
-                    list="city_list"
-                    id="delivery_city"
-                    placeholder="Начните вводить..."
-                />
-
-            </div>
+            <input
+                list="industry_list"
+                id="industry"
+                placeholder="Начните вводить..."
+            />
 
         </div>
 
-        <!-- PLATFORM + TRADE + MODE -->
+        <!-- PUBLICATION -->
+
+        <div class="field full-width-field">
+
+            <label for="publication_name">
+                Название публикации
+            </label>
+
+            <input
+                id="publication_name"
+                type="text"
+                placeholder="Введите название публикации"
+            />
+
+        </div>
+
+    </div>
+
+            <!-- PLATFORM + TRADE + MODE -->
 
         <div class="inline-grid three-inline">
 
@@ -290,39 +324,6 @@
 
         </div>
 
-        <!-- INDUSTRY -->
-
-        <div class="field full-width-field">
-
-            <label for="industry">
-                Отрасль закупки
-            </label>
-
-            <input
-                list="industry_list"
-                id="industry"
-                placeholder="Начните вводить..."
-            />
-
-        </div>
-
-        <!-- PUBLICATION -->
-
-        <div class="field full-width-field">
-
-            <label for="publication_name">
-                Название публикации
-            </label>
-
-            <input
-                id="publication_name"
-                type="text"
-                placeholder="Введите название публикации"
-            />
-
-        </div>
-
-    </div>
 
     <!-- ACCORDION -->
 
