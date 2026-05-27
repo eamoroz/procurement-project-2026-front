@@ -182,6 +182,20 @@
 
         </div>
 
+        <div class="field full-width-field">
+
+            <label for="num_participants">
+                Количество участников (если известно)
+            </label>
+        
+            <input
+                id="num_participants"
+                type="number"
+                placeholder="Введите начальную количество участников"
+            />
+        
+        </div>
+
         <!-- REGION + CITY -->
 
         <!-- REGION -->
@@ -305,7 +319,7 @@
 
                 <select id="mode">
 
-                    <option value="">Не указано</option>
+                    <option value="">Не выбрано</option>
                     <option>504ФЗ</option>
                     <option>505ФЗ</option>
 
@@ -458,7 +472,7 @@
                 
                 <select id="bank_treasury_support">
                 
-                    <option value="">Не указано</option>
+                    <option value="">Не выбрано</option>
                 
                     <option>
                         Требуется казначейское сопровождение контракта
@@ -473,15 +487,6 @@
                     </option>
                 
                 </select>
-                
-                <label for="num_participants">
-                    Количество участников
-                </label>
-                
-                <input
-                    id="num_participants"
-                    type="number"
-                />
 
                 <div class="checkbox-group">
 
