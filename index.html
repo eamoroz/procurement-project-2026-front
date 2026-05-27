@@ -190,19 +190,13 @@
         
             <label>Регион проведения закупки</label>
         
-            <select id="region">
+        <input
+            list="region_list"
+            id="region"
+            placeholder="Начните вводить..."
+        />
         
-                <option>Москва</option>
-                <option>Санкт-Петербург</option>
-                <option>Московская область</option>
-                <option>Ленинградская область</option>
-                <option>Новосибирская область</option>
-                <option>Свердловская область</option>
-                <option>Республика Татарстан</option>
-                <option>Краснодарский край</option>
-                <option>Другой регион</option>
-        
-            </select>
+        <datalist id="region_list"></datalist>
         
         </div>
         
@@ -219,6 +213,8 @@
                 id="delivery_city"
                 placeholder="Начните вводить..."
             />
+
+            <datalist id="city_list"></datalist>
         
         </div>
 
@@ -235,6 +231,8 @@
                 id="industry"
                 placeholder="Начните вводить..."
             />
+
+            <datalist id="industry_list"></datalist>
 
         </div>
 
