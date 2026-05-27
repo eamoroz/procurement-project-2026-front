@@ -11,7 +11,7 @@ body {
 .container {
     max-width: 1500px;
 
-    margin: 20px auto;
+    margin: 20px autoч;
 
     background: white;
 
@@ -365,8 +365,6 @@ h1 {
 
     display: block;
 
-    margin-top: 18px;
-
     margin-bottom: 10px;
 
     font-size: 16px;
@@ -423,9 +421,9 @@ select:focus {
 
     flex-direction: column;
 
-    gap: 16px;
+    gap: 4px;
 
-    margin-top: 10px;
+    margin-top: 18px;
 }
 
 .checkbox-group label {
@@ -770,7 +768,7 @@ select:focus {
 
     cursor: pointer;
 
-    padding: 10px 0;
+    padding: 4px 0;
 }
 
 .checkbox-label input[type="checkbox"] {
@@ -892,9 +890,22 @@ select:focus {
 
 }
 
-.form-card h3 + label,
-.form-card h3 + .double-field,
-.form-card h3 + .checkbox-group {
+/* ADVANCED CARDS SPACING */
+
+.advanced-section .form-card label {
+
+    margin-top: 18px;
+}
+
+.advanced-section .form-card input,
+.advanced-section .form-card select {
+
+    margin-bottom: 6px;
+}
+
+/* first element */
+
+.advanced-section .form-card h3 + label {
 
     margin-top: 0;
 }
