@@ -1,3 +1,57 @@
+// =========================
+// LOAD DICTIONARIES
+// =========================
+
+async function loadDatalist(jsonPath, datalistId) {
+
+    try {
+
+        const response = await fetch(jsonPath);
+
+        const values = await response.json();
+
+        const datalist = document.getElementById(datalistId);
+
+        values.forEach(value => {
+
+            const option = document.createElement("option");
+
+            option.value = value;
+
+            datalist.appendChild(option);
+
+        });
+
+    } catch (err) {
+
+        console.error(
+            "Ошибка загрузки:",
+            jsonPath,
+            err
+        );
+
+    }
+}
+
+// cities
+loadDatalist(
+    "values_delivery_city.json",
+    "city_list"
+);
+
+// regions
+loadDatalist(
+    "values_delivery_region.json",
+    "region_list"
+);
+
+// industries
+loadDatalist(
+    "values_industry_scope.json",
+    "industry_list"
+);
+
+
 async function predict() {
     const resultDiv = document.getElementById("result");
     const btn = document.querySelector("button");
