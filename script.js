@@ -339,8 +339,14 @@ resultDiv.innerHTML = `
 lucide.createIcons();
 
     } catch (err) {
+    
+        console.error(err);
+    
         resultDiv.className = "result error";
-        resultDiv.innerHTML = "Ошибка запроса: " + err;
+    
+        resultDiv.innerHTML =
+            "Что-то пошло не так. Попробуйте позднее.";
+    
     } finally {
         btn.disabled = false;
     }
