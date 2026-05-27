@@ -179,8 +179,19 @@ async function predict() {
         
         // --- результаты ---
         const drop = priceRes.predicted_drop_pct * 100;
+
+        const conservativePrice =
+            priceRes.predicted_final_price_upper;
+        
+        const aggressivePrice =
+            priceRes.predicted_final_price_lower;
         
         const isDumping = dumpingRes.is_dumping;
+
+        const dumpingConfidence = Math.max(
+            dumpingRes.dumping_probability,
+            1 - dumpingRes.dumping_probability
+        ) * 100;
         
         let dumpingText = "";
         
@@ -189,7 +200,7 @@ async function predict() {
                 "⚠️ Модель выявила высокий риск демпинга. Рекомендуется обратить внимание.";
         } else {
             dumpingText =
-                "✅ Признаков аномального демпинга не обнаружено.";
+                "✅ Признаков демпинга не обнаружено";
         }
         
 resultDiv.className = "result-card";
@@ -259,6 +270,20 @@ resultDiv.innerHTML = `
         <div class="metric-description">
             Прогнозируемая итоговая стоимость контракта
         </div>
+        
+        <div class="metric-subvalues">
+        
+            <div>
+                Консервативный сценарий:
+                ${conservativePrice.toLocaleString("ru-RU")} ₽
+            </div>
+        
+            <div>
+                Агрессивный сценарий:
+                ${aggressivePrice.toLocaleString("ru-RU")} ₽
+            </div>
+        
+        </div>
 
     </div>
 
@@ -286,9 +311,18 @@ resultDiv.innerHTML = `
             ${
                 isDumping
                 ? "Модель выявила признаки аномального снижения цены"
-                : "Признаков аномального демпинга не выявлено"
+                : "Признаков демпинга не выявлено"
             }
         </div>
+
+<div class="metric-subvalues">
+
+    <div>
+        Уверенность модели:
+        ${dumpingConfidence.toFixed(1)}%
+    </div>
+
+</div>
 
     </div>
 
