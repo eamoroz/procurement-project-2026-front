@@ -890,22 +890,17 @@ select:focus {
 
 }
 
-/* ADVANCED CARDS SPACING */
+/* SAME TOP SPACING INSIDE ADVANCED CARDS */
 
-.advanced-section .form-card label {
+.advanced-section .form-card > label,
+.advanced-section .form-card > .double-field,
+.advanced-section .form-card > .checkbox-group {
 
     margin-top: 18px;
 }
 
-.advanced-section .form-card input,
-.advanced-section .form-card select {
-
-    margin-bottom: 6px;
-}
-
-/* first element */
-
-.advanced-section .form-card h3 + label {
+.advanced-section .form-card h3 + label,
+.advanced-section .form-card h3 + .double-field {
 
     margin-top: 0;
 }
