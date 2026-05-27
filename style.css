@@ -380,7 +380,7 @@ select {
 
     height: 50px;
 
-    padding: 0 16px;
+    padding: 0 22px;
 
     border-radius: 12px;
 
@@ -412,6 +412,18 @@ select:focus {
 
     gap: 14px;
 }
+
+.double-field {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+
+    margin-bottom: 22px;
+}
+
 
 /* CHECKBOXES */
 
