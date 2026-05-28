@@ -158,6 +158,7 @@
     
     <div class="description">
         Введите известные параметры закупки, и модель оценит ожидаемое снижение цены и итоговую стоимость контракта на основе исторических данных о торгах.
+        Поля, отмеченные <span class="required-star">*</span>, обязательны для заполнения.
     </div>
 
 <div class="main-layout">
@@ -172,7 +173,11 @@
 
         <div class="field full-width-field">
 
-            <label>Начальная цена (руб)</label>
+            <label>
+                Начальная цена (руб)
+                <span class="required-star">*</span>
+            </label>
+            
 
             <input
                 type="number"
@@ -202,7 +207,10 @@
         
         <div class="field full-width-field">
         
-            <label>Регион проведения закупки</label>
+            <label>
+                Регион проведения закупки
+                <span class="required-star">*</span>
+            </label>
         
         <input
             list="region_list"
@@ -256,6 +264,7 @@
 
             <label for="publication_name">
                 Название публикации
+                <span class="required-star">*</span>
             </label>
 
             <input
