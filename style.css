@@ -964,3 +964,12 @@ select:focus {
 
     line-height: 1.5;
 }
+
+.required-star {
+
+    color: #315efb;
+
+    margin-left: 4px;
+
+    font-weight: 700;
+}
