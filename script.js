@@ -57,12 +57,35 @@ async function predict() {
     const btn = document.querySelector("button");
 
     const price = document.getElementById("price").value;
+    const region =
+    document.getElementById("region").value.trim();
 
-    // --- проверка цены ---
+    const publicationName =
+        document.getElementById("publication_name").value.trim();
+
+    // --- проверка ---
+    const errors = [];
+    
     if (!price) {
+        errors.push("Введите начальную цену");
+    }
+    
+    if (!region) {
+        errors.push("Укажите регион проведения закупки");
+    }
+    
+    if (!publicationName) {
+        errors.push("Введите название публикации");
+    }
+    
+    if (errors.length > 0) {
+    
         resultDiv.className = "result error";
-        resultDiv.innerHTML = "Введите цену";
+    
+        resultDiv.innerHTML = errors.join("<br>");
+    
         resultDiv.style.display = "block";
+    
         return;
     }
 
