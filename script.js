@@ -64,17 +64,18 @@ async function predict() {
         document.getElementById("publication_name").value.trim();
 
     // --- проверка ---
+    
     const missingFields = [];
-
-    if (!formData.customer_price_rub) {
+    
+    if (!price || parseFloat(price) <= 0) {
         missingFields.push("начальную цену");
     }
     
-    if (!formData.region_name) {
+    if (!region) {
         missingFields.push("регион проведения закупки");
     }
     
-    if (!formData.publication_name?.trim()) {
+    if (!publicationName) {
         missingFields.push("название публикации");
     }
     
@@ -92,6 +93,17 @@ async function predict() {
         errorText =
             `Укажите ${missingFields.slice(0, -1).join(", ")} ` +
             `и ${missingFields[missingFields.length - 1]}`;
+    }
+
+    if (missingFields.length > 0) {
+
+        resultDiv.className = "result error";
+    
+        resultDiv.innerHTML = errorText;
+    
+        resultDiv.style.display = "block";
+    
+        return;
     }
 
     // --- проверка industry ---
