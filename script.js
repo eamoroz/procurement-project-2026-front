@@ -228,10 +228,8 @@ async function predict() {
         
         const isDumping = dumpingRes.is_dumping;
 
-        const dumpingConfidence = Math.max(
-            dumpingRes.dumping_probability,
-            1 - dumpingRes.dumping_probability
-        ) * 100;
+        const dumpingProbability =
+            dumpingRes.dumping_probability * 100;
         
         let dumpingText = "";
         
@@ -358,8 +356,8 @@ resultDiv.innerHTML = `
 <div class="metric-subvalues">
 
     <div>
-        Уверенность модели:
-        ${dumpingConfidence.toFixed(1)}%
+        Вероятность демпинга:
+        ${dumpingProbability.toFixed(1)}%
     </div>
 
 </div>
